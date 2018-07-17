@@ -24,7 +24,7 @@ class SendCurrencyRateNotification
     {
         $users = User::withoutAdmins()->get();
         foreach ($users as $user) {
-            SendRateChangedEmail::dispatch($user,$event->currency,$event->oldRate)->onQueue('notification');;
+            SendRateChangedEmail::dispatch($user,$event->currency,$event->oldRate);
         }
     }
 }
