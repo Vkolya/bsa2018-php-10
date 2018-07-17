@@ -42,6 +42,8 @@ class CurrencyController extends Controller
         $currency->save();
         
         event(new CurrencyRateChanged($currency,$oldRate));
+        
+        return response()->json($currency,200);
     }
  
 }
